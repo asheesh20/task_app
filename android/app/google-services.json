@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "45562796582",
+    "project_id": "task-app-ceba1",
+    "storage_bucket": "task-app-ceba1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:45562796582:android:87e77b309a1c735f37e4e7",
+        "android_client_info": {
+          "package_name": "com.example.task_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDesRNtDYRPUhUxiAWN3ELjMu4W2VzG0k8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
