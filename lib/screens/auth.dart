@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:task_app/widgets/square_tile.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
+final _firebase = FirebaseAuth.instance;
 
 class AuthScreen extends StatefulWidget {
   const AuthScreen({super.key});
@@ -19,14 +22,77 @@ class _AuthScreenState extends State<AuthScreen> {
   var _enteredEmail = '';
   var _enteredPassword = '';
 
-  void _submit() {
+  void _submit() async {
     final isValid = _formKey.currentState!.validate();
 
-    if (isValid) {
-      _formKey.currentState!.save(); // triggers the onSaved function
-      print(_enteredName);
-      print(_enteredEmail);
-      print(_enteredPassword);
+    if (!isValid) {
+      return;
+    }
+
+    _formKey.currentState!.save(); // triggers the onSaved function
+    // print(_enteredName);
+    // print(_enteredEmail);
+    // print(_enteredPassword);
+
+    if (_isLogin) {
+      // log users in
+      try {
+        final userCredentials = await _firebase.signInWithEmailAndPassword(
+            email: _enteredEmail, password: _enteredPassword);
+      } on FirebaseAuthException catch (error) {
+        if (error.code == 'user-not-found') {
+          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+              duration: Duration(milliseconds: 1000),
+              backgroundColor: Colors.black,
+              content: Center(
+                child: Text(
+                  'No User found for that email',
+                  style: TextStyle(fontSize: 18, color: Colors.white),
+                ),
+              )));
+        } else if (error.code == 'wrong-password') {
+          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+              duration: Duration(milliseconds: 100),
+              backgroundColor: Colors.black,
+              content: Center(
+                child: Text(
+                  'Wrong Password Provided by User',
+                  style: TextStyle(fontSize: 18, color: Colors.white),
+                ),
+              )));
+        }
+      }
+    } else {
+      //signing users in
+      try {
+        final userCredentials = await _firebase.createUserWithEmailAndPassword(
+            email: _enteredEmail, password: _enteredPassword);
+      } on FirebaseAuthException catch (error) {
+        if (error.code == 'email-already-in-use') {
+          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+              duration: Duration(milliseconds: 1200),
+              backgroundColor: Colors.black,
+              content: Center(
+                child: Text(
+                  'Account already exists',
+                  style: TextStyle(fontSize: 18, color: Colors.white),
+                ),
+              )));
+        } else if (error.code == 'weak-pasword') {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              duration: Duration(milliseconds: 1000),
+              backgroundColor: Colors.black,
+              content: Center(
+                child: Text(
+                  'Password is too weak',
+                  style: TextStyle(fontSize: 18, color: Colors.white),
+                ),
+              ),
+            ),
+          );
+        }
+      }
     }
   }
 
@@ -245,7 +311,7 @@ class _AuthScreenState extends State<AuthScreen> {
                         });
                       },
                       child: Text(
-                        _isLogin ? 'LogIn' : 'SignUp',
+                        _isLogin ? 'SignUp' : 'LogIn',
                         style: const TextStyle(
                             color: Colors.blue, fontWeight: FontWeight.bold),
                       ),

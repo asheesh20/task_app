@@ -1,7 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:task_app/screens/auth.dart';
 
 import 'package:firebase_core/firebase_core.dart';
+import 'package:task_app/screens/home.dart';
+import 'package:task_app/screens/splash.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -17,8 +20,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(context) {
-    return const MaterialApp(
-      home: AuthScreen(),
+    return MaterialApp(
+      home: StreamBuilder(
+          stream: FirebaseAuth.instance.authStateChanges(),
+          builder: (ctx, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const Splash();
+            }
+            if (snapshot.hasData) {
+              return const Home();
+            }
+            return const AuthScreen();
+          }),
     );
   }
 }
