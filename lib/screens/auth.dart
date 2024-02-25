@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:task_app/widgets/square_tile.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:task_app/widgets/user_image_picker.dart';
 
 final _firebase = FirebaseAuth.instance;
 
@@ -21,6 +22,7 @@ class _AuthScreenState extends State<AuthScreen> {
   var _enteredName = '';
   var _enteredEmail = '';
   var _enteredPassword = '';
+  var _isAuthenticating = false;
 
   void _submit() async {
     final isValid = _formKey.currentState!.validate();
@@ -37,6 +39,9 @@ class _AuthScreenState extends State<AuthScreen> {
     if (_isLogin) {
       // log users in
       try {
+        /*setState(() {
+          _isAuthenticating = true;
+        });*/
         final userCredentials = await _firebase.signInWithEmailAndPassword(
             email: _enteredEmail, password: _enteredPassword);
       } on FirebaseAuthException catch (error) {
@@ -50,6 +55,9 @@ class _AuthScreenState extends State<AuthScreen> {
                   style: TextStyle(fontSize: 18, color: Colors.white),
                 ),
               )));
+          /*setState(() {
+            _isAuthenticating = false;
+          });*/
         } else if (error.code == 'wrong-password') {
           ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
               duration: Duration(milliseconds: 100),
@@ -60,6 +68,9 @@ class _AuthScreenState extends State<AuthScreen> {
                   style: TextStyle(fontSize: 18, color: Colors.white),
                 ),
               )));
+          /*setState(() {
+            _isAuthenticating = false;
+          });*/
         }
       }
     } else {
@@ -78,6 +89,9 @@ class _AuthScreenState extends State<AuthScreen> {
                   style: TextStyle(fontSize: 18, color: Colors.white),
                 ),
               )));
+          /*setState(() {
+            _isAuthenticating = false;
+          });*/
         } else if (error.code == 'weak-pasword') {
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(
@@ -91,6 +105,9 @@ class _AuthScreenState extends State<AuthScreen> {
               ),
             ),
           );
+          /*setState(() {
+            _isAuthenticating = false;
+          });*/
         }
       }
     }
@@ -127,40 +144,42 @@ class _AuthScreenState extends State<AuthScreen> {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 25),
-                        child: TextFormField(
-                          //controller: namecontroller,
-                          decoration: InputDecoration(
-                            //labelText: 'Username',
-                            labelStyle: TextStyle(color: Colors.grey[700]),
-                            enabledBorder: const OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.white),
+                      //if (!_isLogin) UserImagePicker(),
+                      if (!_isLogin)
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 25),
+                          child: TextFormField(
+                            //controller: namecontroller,
+                            decoration: InputDecoration(
+                              //labelText: 'Username',
+                              labelStyle: TextStyle(color: Colors.grey[700]),
+                              enabledBorder: const OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.white),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide:
+                                    BorderSide(color: Colors.grey.shade400),
+                              ),
+                              fillColor: Colors.grey.shade200,
+                              hintText: 'Username',
+                              filled: true,
                             ),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide:
-                                  BorderSide(color: Colors.grey.shade400),
-                            ),
-                            fillColor: Colors.grey.shade200,
-                            hintText: 'Username',
-                            filled: true,
+                            enableSuggestions:
+                                false, // prevents lines under words
+                            //keyboardType: TextInputType.emailAddress,
+                            autocorrect: false,
+                            //textCapitalization: TextCapitalization.none,
+                            validator: (value) {
+                              if (value == null || value.trim().isEmpty) {
+                                return 'Please enter name';
+                              }
+                              return null;
+                            },
+                            onSaved: (value) {
+                              _enteredName = value!;
+                            },
                           ),
-                          enableSuggestions:
-                              false, // prevents lines under words
-                          //keyboardType: TextInputType.emailAddress,
-                          autocorrect: false,
-                          //textCapitalization: TextCapitalization.none,
-                          validator: (value) {
-                            if (value == null || value.trim().isEmpty) {
-                              return 'Please enter name';
-                            }
-                            return null;
-                          },
-                          onSaved: (value) {
-                            _enteredName = value!;
-                          },
                         ),
-                      ),
                       const SizedBox(
                         height: 10,
                       ),
@@ -298,7 +317,9 @@ class _AuthScreenState extends State<AuthScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      'Already have an account?',
+                      _isLogin
+                          ? 'Don\'t have an account?'
+                          : 'Already have an account?',
                       style: TextStyle(color: Colors.grey[800]),
                     ),
                     const SizedBox(
