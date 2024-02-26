@@ -40,6 +40,7 @@ dependencies:
   firebase_storage: ^11.6.6
   image_picker: ^1.0.7
   cloud_firestore: ^4.15.5
+  smooth_page_indicator: ^1.1.0
 
 dev_dependencies:
   flutter_test:
@@ -75,6 +76,13 @@ flutter:
     - assets/images/Guestroom.jpg
     - assets/images/Laundryroom.jpg
     - assets/images/Bathroom.jpg
+    - assets/images/desklamp.jpg
+    - assets/images/humidifier.jpg
+    - assets/images/kettle.jpg
+    - assets/images/smartbulb.jpg
+    - assets/images/speakerc.jpg
+    - assets/images/vacuum.jpg
+
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

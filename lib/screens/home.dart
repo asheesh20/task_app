@@ -1,15 +1,19 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:task_app/models/home_devices.dart';
+//import 'package:flutter/widgets.dart';
 import 'package:task_app/models/home_model.dart';
 import 'package:task_app/screens/roomcard.dart';
+import 'package:task_app/widgets/devicesCard.dart';
 import 'package:task_app/widgets/username.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final PageController _pageController = PageController(initialPage: 0);
     final size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Colors.grey[300],
@@ -28,9 +32,11 @@ class Home extends StatelessWidget {
       ),
       body: SafeArea(
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
+              mainAxisSize: MainAxisSize.min,
               children: [
                 IconButton(
                   onPressed: () {},
@@ -48,7 +54,7 @@ class Home extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 15),
               child: Row(
-                //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   const Text(
                     'All Rooms',
@@ -61,14 +67,14 @@ class Home extends StatelessWidget {
               ),
             ),
             //Rooms Configuration
-            Expanded(
-                child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: smartHomeData.length,
-                    itemBuilder: (context, index) {
-                      final data = smartHomeData[index];
-                      return RoomCard(roomData: data);
-                      /*if (index == 0 || smartHomeData.length + 1 == index) {
+            /*Expanded(
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: smartHomeData.length,
+                itemBuilder: (context, index) {
+                  final data = smartHomeData[index];
+                  return RoomCard(roomData: data);
+                  /*if (index == 0 || smartHomeData.length + 1 == index) {
                         return Container(
                           height: size.height * 0.08,
                           width: size.width * 0.4,
@@ -76,19 +82,142 @@ class Home extends StatelessWidget {
                           color: Colors.orange,
                         );
                       }*/
-                      //final data = smartHomeData[index - 1];
-                      //return RoomCard(roomData: data);
+                  // data = smartHomeData[index - 1];
+                  //return RoomCard(roomData: data);
 
-                      /*Container(
+                  /*Container(
                         height: size.height * 0.08,
                         width: size.width * 0.4,
                         margin: const EdgeInsets.symmetric(horizontal: 10),
                         color: Colors.orangeAccent,
                       );*/
+                },
+              ),
+            ),*/
+            /*SizedBox(
+              height: 350,
+              child: Center(
+                child: SmoothPageIndicator(
+                  controller: _pageController,
+                  count: 3,
+                  effect: const WormEffect(dotColor: Colors.black),
+                ),
+              ),
+            ),*/
+
+            SizedBox(
+              height: 250,
+              width: double.infinity,
+              child: ListView.builder(
+                controller: _pageController,
+                scrollDirection: Axis.horizontal,
+                itemCount: smartHomeData.length,
+                itemBuilder: (context, index) {
+                  final data = smartHomeData[index];
+                  return RoomCard(roomData: data);
+                  /*if (index == 0 || smartHomeData.length + 1 == index) {
+                        return Container(
+                          height: size.height * 0.08,
+                          width: size.width * 0.4,
+                          margin: const EdgeInsets.symmetric(horizontal: 10),
+                          color: Colors.orange,
+                        );
+                      }*/
+                  // data = smartHomeData[index - 1];
+                  //return RoomCard(roomData: data);
+
+                  /*Container(
+                        height: size.height * 0.08,
+                        width: size.width * 0.4,
+                        margin: const EdgeInsets.symmetric(horizontal: 10),
+                        color: Colors.orangeAccent,
+                      );*/
+                },
+              ),
+            ),
+            const SizedBox(
+              height: 5,
+            ),
+            Center(
+              child: SmoothPageIndicator(
+                controller: _pageController,
+                count: 3,
+                effect: WormEffect(
+                  dotColor: Colors.grey.shade800.withOpacity(0.3),
+                  activeDotColor: const Color(0xFF6A4FB7),
+                  dotHeight: 10,
+                  dotWidth: 10,
+                  spacing: 5,
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            // My devices
+            Padding(
+              padding: const EdgeInsets.only(left: 15),
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text(
+                      'My Devices',
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+                    ),
+                    IconButton(
+                      onPressed: () {},
+                      icon: const Icon(Icons.arrow_forward_ios),
+                    ),
+                  ]),
+            ),
+            Expanded(
+                child: GridView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: 6,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      mainAxisExtent:
+                          MediaQuery.of(context).size.width / 2 - 36,
+                      crossAxisSpacing: 20,
+                      mainAxisSpacing: 20,
+                    ),
+                    itemBuilder: (context, index) {
+                      final info = demoHomeDevices[index];
+                      return Padding(
+                        // padding: const EdgeInsets.only(left: 10),
+                        padding: const EdgeInsets.symmetric(horizontal: 10),
+
+                        child: DeviceCard(deviceData: info),
+                      );
                     })),
           ],
         ),
       ),
     );
   }
+
+  /*Container devicesCard(HomeDevices homeDevices) {
+    
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+          color: const Color(0xFFF4F2F8),
+          borderRadius: BorderRadius.circular(33),
+          image: DecorationImage(image: AssetImage(demoHomeDevices[index]))),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          SizedBox(
+            height: 110,
+            width: 110,
+            child: Image.asset(
+              homeDevices.image,
+              fit: BoxFit.cover,
+            ),
+          )
+        ],
+      ),
+    );
+  } */
 }
