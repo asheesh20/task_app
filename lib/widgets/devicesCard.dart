@@ -18,6 +18,18 @@ class DeviceCard extends StatelessWidget {
           image: AssetImage(deviceData.image),
         ),
       ),
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(0, 86, 0, 0),
+        child: Text(
+          deviceData.title,
+          textAlign: TextAlign.center,
+          style: const TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.w600,
+            color: Colors.white,
+          ),
+        ),
+      ),
       /*child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

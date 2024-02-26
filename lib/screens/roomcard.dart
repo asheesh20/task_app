@@ -24,7 +24,8 @@ class RoomCard extends StatelessWidget {
         ),
       ),
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(0, 220, 0, 0),
+        padding: /* EdgeInsets.fromLTRB(0, 220, 0, 0)*/ const EdgeInsets.only(
+            top: 220),
         child: Text(
           roomData.roomName,
           textAlign: TextAlign.center,

@@ -172,25 +172,27 @@ class Home extends StatelessWidget {
                   ]),
             ),
             Expanded(
-                child: GridView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: 6,
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      mainAxisExtent:
-                          MediaQuery.of(context).size.width / 2 - 36,
-                      crossAxisSpacing: 20,
-                      mainAxisSpacing: 20,
-                    ),
-                    itemBuilder: (context, index) {
-                      final info = demoHomeDevices[index];
-                      return Padding(
-                        // padding: const EdgeInsets.only(left: 10),
-                        padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: Container(
+              padding: const EdgeInsets.only(bottom: 4),
+              child: GridView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 6,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    mainAxisExtent: MediaQuery.of(context).size.width / 2 - 36,
+                    crossAxisSpacing: 20,
+                    mainAxisSpacing: 20,
+                  ),
+                  itemBuilder: (context, index) {
+                    final info = demoHomeDevices[index];
+                    return Padding(
+                      // padding: const EdgeInsets.only(left: 10),
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
 
-                        child: DeviceCard(deviceData: info),
-                      );
-                    })),
+                      child: DeviceCard(deviceData: info),
+                    );
+                  }),
+            )),
           ],
         ),
       ),
