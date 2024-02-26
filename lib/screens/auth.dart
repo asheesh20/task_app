@@ -1,7 +1,10 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:task_app/widgets/square_tile.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:task_app/widgets/user_image_picker.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 final _firebase = FirebaseAuth.instance;
 
@@ -26,6 +29,7 @@ class _AuthScreenState extends State<AuthScreen> {
 
   void _submit() async {
     final isValid = _formKey.currentState!.validate();
+    FocusScope.of(context).unfocus();
 
     if (!isValid) {
       return;
@@ -39,9 +43,9 @@ class _AuthScreenState extends State<AuthScreen> {
     if (_isLogin) {
       // log users in
       try {
-        /*setState(() {
+        setState(() {
           _isAuthenticating = true;
-        });*/
+        });
         final userCredentials = await _firebase.signInWithEmailAndPassword(
             email: _enteredEmail, password: _enteredPassword);
       } on FirebaseAuthException catch (error) {
@@ -72,12 +76,23 @@ class _AuthScreenState extends State<AuthScreen> {
             _isAuthenticating = false;
           });*/
         }
+        setState(() {
+          _isAuthenticating = false;
+        });
       }
     } else {
       //signing users in
       try {
         final userCredentials = await _firebase.createUserWithEmailAndPassword(
             email: _enteredEmail, password: _enteredPassword);
+
+        await FirebaseFirestore.instance
+            .collection('users')
+            .doc(userCredentials.user!.uid)
+            .set({
+          'username': _enteredName,
+          'email': _enteredEmail,
+        });
       } on FirebaseAuthException catch (error) {
         if (error.code == 'email-already-in-use') {
           ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
@@ -107,8 +122,11 @@ class _AuthScreenState extends State<AuthScreen> {
           );
           /*setState(() {
             _isAuthenticating = false;
-          });*/
+          }); */
         }
+        setState(() {
+          _isAuthenticating = false;
+        });
       }
     }
   }
@@ -256,27 +274,29 @@ class _AuthScreenState extends State<AuthScreen> {
                 const SizedBox(
                   height: 25,
                 ),
-                GestureDetector(
-                  onTap: _submit,
-                  child: Container(
-                    padding: const EdgeInsets.all(25),
-                    margin: const EdgeInsets.symmetric(horizontal: 25),
-                    decoration: BoxDecoration(
-                      color: Colors.black,
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: Center(
-                      child: Text(
-                        _isLogin ? 'Log In' : 'Sign Up',
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
+                if (_isAuthenticating) const CircularProgressIndicator(),
+                if (!_isAuthenticating)
+                  GestureDetector(
+                    onTap: _submit,
+                    child: Container(
+                      padding: const EdgeInsets.all(25),
+                      margin: const EdgeInsets.symmetric(horizontal: 25),
+                      decoration: BoxDecoration(
+                        color: Colors.black,
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: Center(
+                        child: Text(
+                          _isLogin ? 'Log In' : 'Sign Up',
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                          ),
                         ),
                       ),
                     ),
                   ),
-                ),
                 const SizedBox(
                   height: 25,
                 ),
@@ -325,18 +345,19 @@ class _AuthScreenState extends State<AuthScreen> {
                     const SizedBox(
                       width: 5,
                     ),
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          _isLogin = !_isLogin;
-                        });
-                      },
-                      child: Text(
-                        _isLogin ? 'SignUp' : 'LogIn',
-                        style: const TextStyle(
-                            color: Colors.blue, fontWeight: FontWeight.bold),
+                    if (!_isAuthenticating)
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            _isLogin = !_isLogin;
+                          });
+                        },
+                        child: Text(
+                          _isLogin ? 'SignUp' : 'LogIn',
+                          style: const TextStyle(
+                              color: Colors.blue, fontWeight: FontWeight.bold),
+                        ),
                       ),
-                    ),
                   ],
                 ),
               ],

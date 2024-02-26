@@ -39,6 +39,7 @@ dependencies:
   firebase_auth: ^4.17.5
   firebase_storage: ^11.6.6
   image_picker: ^1.0.7
+  cloud_firestore: ^4.15.5
 
 dev_dependencies:
   flutter_test:
@@ -66,6 +67,14 @@ flutter:
   assets:
     - assets/images/apple.png
     - assets/images/google.png
+    - assets/images/Bedroom.jpg
+    - assets/images/Livingroom.jpg
+    - assets/images/Dinningroom.jpg
+    - assets/images/Kitchen.jpg
+    - assets/images/Homeoffice.jpg
+    - assets/images/Guestroom.jpg
+    - assets/images/Laundryroom.jpg
+    - assets/images/Bathroom.jpg
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
