@@ -33,7 +33,7 @@ List<HomeModel> smartHomeData = [
   HomeModel(
     roomName: 'Living Room',
     roomImage: 'assets/images/Livingroom.jpg',
-    roomTemperature: '25',
+    roomTemperature: '25°',
     roomStatus: true,
     devices: [
       DeviceInRoom(
@@ -71,7 +71,7 @@ List<HomeModel> smartHomeData = [
   HomeModel(
     roomName: 'Master Bedroom',
     roomImage: 'assets/images/Bedroom.jpg',
-    roomTemperature: '25',
+    roomTemperature: '25°',
     roomStatus: true,
     devices: [
       DeviceInRoom(
@@ -115,7 +115,7 @@ List<HomeModel> smartHomeData = [
   HomeModel(
     roomName: 'Dining Room',
     roomImage: 'assets/images/Dinningroom.jpg',
-    roomTemperature: '25',
+    roomTemperature: '25°',
     roomStatus: true,
     devices: [
       DeviceInRoom(
@@ -147,7 +147,7 @@ List<HomeModel> smartHomeData = [
   HomeModel(
     roomName: 'Kitchen',
     roomImage: 'assets/images/Kitchen.jpg',
-    roomTemperature: '25',
+    roomTemperature: '25°',
     roomStatus: true,
     devices: [
       DeviceInRoom(
@@ -209,7 +209,7 @@ List<HomeModel> smartHomeData = [
   HomeModel(
     roomName: 'Home Office',
     roomImage: 'assets/images/Homeoffice.jpg',
-    roomTemperature: '25',
+    roomTemperature: '25°',
     roomStatus: true,
     devices: [
       DeviceInRoom(
@@ -241,7 +241,7 @@ List<HomeModel> smartHomeData = [
   HomeModel(
     roomName: 'Guest Room',
     roomImage: 'assets/images/Guestroom.jpg',
-    roomTemperature: '25',
+    roomTemperature: '25°',
     roomStatus: true,
     devices: [
       DeviceInRoom(
@@ -273,7 +273,7 @@ List<HomeModel> smartHomeData = [
   HomeModel(
     roomName: 'Laundry Room',
     roomImage: 'assets/images/Laundryroom.jpg',
-    roomTemperature: '25',
+    roomTemperature: '25°',
     roomStatus: true,
     devices: [
       DeviceInRoom(
@@ -299,7 +299,7 @@ List<HomeModel> smartHomeData = [
   HomeModel(
       roomName: 'Bathroom',
       roomImage: 'assets/images/Bathroom.jpg',
-      roomTemperature: '25',
+      roomTemperature: '25°',
       roomStatus: true,
       devices: [
         DeviceInRoom(
