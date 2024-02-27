@@ -19,7 +19,7 @@ class DeviceCard extends StatelessWidget {
         ),
       ),
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(0, 86, 0, 0),
+        padding: const EdgeInsets.fromLTRB(0, 1000, 0, 0),
         child: Text(
           deviceData.title,
           textAlign: TextAlign.center,

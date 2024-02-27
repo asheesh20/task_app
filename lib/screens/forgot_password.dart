@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:task_app/screens/auth.dart';
 //import 'package:task_app/screens/auth.dart';
 //import 'package:smart_app/screens/signup.dart';
 
@@ -140,11 +141,12 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                     const SizedBox(
                       height: 50,
                     ),
-                    /*Row(
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         const Text(
-                          'Don\'t have an account?',
+                          //'Don\'t have an account?',
+                          'Created a new password?',
                           style: TextStyle(
                             fontSize: 18,
                             color: Colors.white,
@@ -160,7 +162,8 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                             ));
                           },
                           child: const Text(
-                            'Create',
+                            // 'Create',
+                            'Login',
                             style: TextStyle(
                               color: Color.fromARGB(225, 184, 166, 6),
                               fontSize: 20,
@@ -169,7 +172,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                           ),
                         ),
                       ],
-                    ),*/
+                    ),
                   ],
                 ),
               ),

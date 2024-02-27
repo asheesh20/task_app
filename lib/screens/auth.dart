@@ -320,7 +320,7 @@ class _AuthScreenState extends State<AuthScreen> {
                 const SizedBox(
                   height: 25,
                 ),
-                Padding(
+                /*Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: Text(
                     'Or LogIn with',
@@ -349,9 +349,9 @@ class _AuthScreenState extends State<AuthScreen> {
                         child: const SquareTile(
                             imagePath: 'assets/images/apple.png')),
                   ],
-                ),
+                ),*/
                 const SizedBox(
-                  height: 20,
+                  height: 85,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
