@@ -261,6 +261,7 @@ import 'package:flutter/material.dart';
 import 'package:task_app/models/home_devices.dart';
 //import 'package:flutter/widgets.dart';
 import 'package:task_app/models/home_model.dart';
+import 'package:task_app/screens/custom_drawer.dart';
 import 'package:task_app/screens/roomcard.dart';
 import 'package:task_app/widgets/devicesCard.dart';
 import 'package:task_app/widgets/username.dart';
@@ -274,6 +275,7 @@ class Home extends StatelessWidget {
     final PageController _pageController = PageController(initialPage: 0);
     final size = MediaQuery.of(context).size;
     return Scaffold(
+      drawer: CustomDrawer(),
       backgroundColor: Colors.grey[300],
       appBar: AppBar(
         backgroundColor: Colors.grey,
@@ -296,10 +298,14 @@ class Home extends StatelessWidget {
             Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.menu),
-                ),
+                Builder(builder: (context) {
+                  return IconButton(
+                    onPressed: () {
+                      Scaffold.of(context).openDrawer();
+                    },
+                    icon: const Icon(Icons.menu),
+                  );
+                }),
                 const SizedBox(
                   width: 10,
                 ),

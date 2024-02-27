@@ -42,6 +42,7 @@ dependencies:
   cloud_firestore: ^4.15.5
   smooth_page_indicator: ^1.1.0
   bloc: ^8.1.3
+  google_sign_in: ^6.2.1
 
 dev_dependencies:
   flutter_test:

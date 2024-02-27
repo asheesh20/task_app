@@ -50,19 +50,21 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDesRNtDYRPUhUxiAWN3ELjMu4W2VzG0k8',
-    appId: '1:45562796582:android:87e77b309a1c735f37e4e7',
-    messagingSenderId: '45562796582',
-    projectId: 'task-app-ceba1',
-    storageBucket: 'task-app-ceba1.appspot.com',
+    apiKey: 'AIzaSyBcdZHY013znrKsWbfkDwiPodXJU_5VKuw',
+    appId: '1:361648722090:android:665b6a99737e00df1480d3',
+    messagingSenderId: '361648722090',
+    projectId: 'smart-app-a41d1',
+    storageBucket: 'smart-app-a41d1.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBa0WQGFvhkz1l7oEKzNU3tsgMLNbey0LQ',
-    appId: '1:45562796582:ios:c03e679f5896fd7437e4e7',
-    messagingSenderId: '45562796582',
-    projectId: 'task-app-ceba1',
-    storageBucket: 'task-app-ceba1.appspot.com',
+    apiKey: 'AIzaSyAqh5pbsUXmL2y2DvfoiL44FUzQfwddJus',
+    appId: '1:361648722090:ios:d8ed77a1f3ae8b7e1480d3',
+    messagingSenderId: '361648722090',
+    projectId: 'smart-app-a41d1',
+    storageBucket: 'smart-app-a41d1.appspot.com',
+    androidClientId: '361648722090-5fuebb57csiuic924qam5vmkt44gbifb.apps.googleusercontent.com',
+    iosClientId: '361648722090-6i0lrtdo5k9qijivvfjv8sb91ip32f54.apps.googleusercontent.com',
     iosBundleId: 'com.example.taskApp',
   );
 }

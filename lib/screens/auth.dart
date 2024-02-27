@@ -1,6 +1,8 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:task_app/screens/forgot_password.dart';
+import 'package:task_app/services/auth_method.dart';
 import 'package:task_app/widgets/square_tile.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:task_app/widgets/user_image_picker.dart';
@@ -268,6 +270,30 @@ class _AuthScreenState extends State<AuthScreen> {
                           },
                         ),
                       ),
+                      if (_isLogin)
+                        const SizedBox(
+                          height: 6,
+                        ),
+                      if (_isLogin)
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 25),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) => ForgotPassword(),
+                                  ));
+                                },
+                                child: Text(
+                                  'Forgot Password?',
+                                  style: TextStyle(color: Colors.grey[800]),
+                                ),
+                              ),
+                            ],
+                          ),
+                        )
                     ],
                   ),
                 ),
@@ -315,7 +341,7 @@ class _AuthScreenState extends State<AuthScreen> {
                   children: [
                     GestureDetector(
                         onTap: () {
-                          // AuthMethod().signInWithGoogle(context);
+                          AuthMethod().signInWithGoogle(context);
                         },
                         child: const SquareTile(
                             imagePath: 'assets/images/google.png')),
