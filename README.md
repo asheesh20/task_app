@@ -38,3 +38,24 @@ In case anyone wants to run this app they should follow the below mention steps.
 5. Smooth Page Indicator
 6. Flutter Launcher Icon
 7. Provider
+
+## Screenshot
+
+![1](https://github.com/asheesh20/task_app/assets/98988175/c45fc3b5-899e-4536-be9e-e1c931ad8a54)
+
+![2](https://github.com/asheesh20/task_app/assets/98988175/a46c88fe-4f68-4fa5-af9c-e0f52a8c51c4)
+
+![7](https://github.com/asheesh20/task_app/assets/98988175/878d78da-9b25-43b7-a925-b264771a160b)
+
+![3](https://github.com/asheesh20/task_app/assets/98988175/7a653b47-2f33-4e7f-aa9e-0640b3ff2736)
+
+![4](https://github.com/asheesh20/task_app/assets/98988175/09c8953f-e9fd-41b8-b014-05033063b696)
+
+![5](https://github.com/asheesh20/task_app/assets/98988175/95d2ff92-1d8f-4439-b513-5dd5adb32ef3)
+
+![6](https://github.com/asheesh20/task_app/assets/98988175/ae6c7583-dbc1-4d0e-bb15-c71da30e8ac9)
+
+![7](https://github.com/asheesh20/task_app/assets/98988175/49a7d856-03dc-4449-91f6-62ef7a3481e9)
+
+![8](https://github.com/asheesh20/task_app/assets/98988175/e6093164-13fe-418a-b0d3-cbaa8e2a64dd)
+
