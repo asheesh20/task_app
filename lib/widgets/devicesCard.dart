@@ -30,19 +30,6 @@ class DeviceCard extends StatelessWidget {
           ),
         ),
       ),
-      /*child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          SizedBox(
-            height: 110,
-            width: 110,
-            child: Image.asset(
-              homeDevices.image,
-              fit: BoxFit.cover,
-            ),
-          )
-        ],
-      ),*/
     );
   }
 }

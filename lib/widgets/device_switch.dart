@@ -1,6 +1,6 @@
-import 'package:flutter/cupertino.dart';
+//import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+//import 'package:flutter/widgets.dart';
 import 'package:task_app/models/home_model.dart';
 
 class DeviceSwitch extends StatefulWidget {
@@ -81,7 +81,7 @@ class _DeviceSwitchState extends State<DeviceSwitch> {
 
   Container _deviceName(Size size, DeviceInRoom data) {
     return Container(
-      margin: EdgeInsets.all(8),
+      margin: const EdgeInsets.all(8),
       width: size.width * 0.22 - 16,
       child: Text(
         data.deviceName,

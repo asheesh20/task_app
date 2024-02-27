@@ -1,13 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
+//import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+//import 'package:flutter/services.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:task_app/screens/home.dart';
 import 'package:task_app/services/database.dart';
-//import 'package:smart_app/screens/home.dart';
-//import 'package:smart_app/services/database.dart';
-//import 'package:the_apple_sign_in/the_apple_sign_in.dart';
 
 class AuthMethod {
   final FirebaseAuth auth = FirebaseAuth.instance;

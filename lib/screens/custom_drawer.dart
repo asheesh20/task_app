@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class CustomDrawer extends StatefulWidget {
@@ -93,7 +94,9 @@ class _CustomDrawerState extends State<CustomDrawer> {
             drawerTile(Icons.settings, 'Settings', () {}),
             drawerTile(Icons.help_outline, 'Help', () {}),
             const Spacer(),
-            drawerTile(Icons.power_settings_new_outlined, 'Logout', () {}),
+            drawerTile(Icons.power_settings_new_outlined, 'Logout', () {
+              FirebaseAuth.instance.signOut();
+            }),
           ],
         ),
       ),
@@ -111,7 +114,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
       ),
       title: Text(
         title,
-        style: TextStyle(color: Colors.white),
+        style: const TextStyle(color: Colors.white),
       ),
     );
   }

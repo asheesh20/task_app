@@ -1,11 +1,8 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:task_app/screens/forgot_password.dart';
 import 'package:task_app/services/auth_method.dart';
 import 'package:task_app/widgets/square_tile.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:task_app/widgets/user_image_picker.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 final _firebase = FirebaseAuth.instance;
@@ -38,9 +35,6 @@ class _AuthScreenState extends State<AuthScreen> {
     }
 
     _formKey.currentState!.save(); // triggers the onSaved function
-    // print(_enteredName);
-    // print(_enteredEmail);
-    // print(_enteredPassword);
 
     if (_isLogin) {
       // log users in
@@ -186,7 +180,6 @@ class _AuthScreenState extends State<AuthScreen> {
                             ),
                             enableSuggestions:
                                 false, // prevents lines under words
-                            //keyboardType: TextInputType.emailAddress,
                             autocorrect: false,
                             //textCapitalization: TextCapitalization.none,
                             validator: (value) {
@@ -283,7 +276,8 @@ class _AuthScreenState extends State<AuthScreen> {
                               GestureDetector(
                                 onTap: () {
                                   Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) => ForgotPassword(),
+                                    builder: (context) =>
+                                        const ForgotPassword(),
                                   ));
                                 },
                                 child: Text(

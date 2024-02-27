@@ -27,7 +27,7 @@ class _HomeDetailState extends State<HomeDetail> {
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
-          physics: NeverScrollableScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(),
           child: Stack(
             children: [
               Column(

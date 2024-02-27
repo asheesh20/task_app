@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+//import 'package:flutter/widgets.dart';
 import 'package:task_app/models/home_model.dart';
 import 'package:task_app/widgets/device_switch.dart';
 import 'dart:io' show Platform;
@@ -151,12 +151,8 @@ class _RoomControlScreenState extends State<RoomControlScreen> {
                   itemCount: roomData.devices!.length,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
-                    //if(index ==0 || roomData.devices!.length +1 =index){
-                    //return SizedBox(width: 10,)
-                    //}
                     final data = roomData.devices![index];
                     return DeviceSwitch(data: data);
-                    //return DeviceSwitch(data: data);
                   }),
             )
           ],
