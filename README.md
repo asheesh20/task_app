@@ -8,6 +8,11 @@ For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 
+A few resources to get you started if this is your first Flutter project:
+
+- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+
 
 In case anyone wants to run this app they should follow the below mention steps.
 
@@ -17,10 +22,9 @@ In case anyone wants to run this app they should follow the below mention steps.
   4. Select the device.
   5. Run the shortcut (CNTRL+F5) for Windows/Linux and (CNTRL+F5) for macOS in order to run without debugging the application.
 
-This project is a starting point for a Flutter application.
+## App Features
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
+1. The application comprises of authentication screen for new users to create account and login page for existing users to login.
+2. The authentication screen consists of features like forgot password, displays error in case of unfilled textfields, show error if the entered password or entered email is wrong.
+3. Home Screen displays the room wise categorization of devices as well as presents summary view of all the devices.
+4. Displays a drawer which contains different options, which enables to user to explore and the drawer contains the logout button as well.
