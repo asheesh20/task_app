@@ -24,7 +24,17 @@ In case anyone wants to run this app they should follow the below mention steps.
 
 ## App Features
 
-1. The application comprises of authentication screen for new users to create account and login page for existing users to login.
+1. The application comprises of authentication screen for new users to create account and login screen for existing users to login.
 2. The authentication screen consists of features like forgot password, displays error in case of unfilled textfields, show error if the entered password or entered email is wrong.
 3. Home Screen displays the room wise categorization of devices as well as presents summary view of all the devices.
 4. Displays a drawer which contains different options, which enables to user to explore and the drawer contains the logout button as well.
+
+## Third-Party Libraries Used
+
+1. Firebase Core
+2. Firebase Auth
+3. Firebase Storage
+4. Image Picker
+5. Smooth Page Indicator
+6. Flutter Launcher Icon
+7. Provider
