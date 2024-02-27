@@ -16,7 +16,7 @@ class Home extends StatelessWidget {
     final PageController _pageController = PageController(initialPage: 0);
     final size = MediaQuery.of(context).size;
     return Scaffold(
-      drawer: CustomDrawer(),
+      drawer: const CustomDrawer(),
       backgroundColor: Colors.grey[300],
       appBar: AppBar(
         title: const Text(
@@ -24,16 +24,6 @@ class Home extends StatelessWidget {
           style: TextStyle(fontSize: 22, fontWeight: FontWeight.w500),
         ),
         backgroundColor: Colors.grey[400],
-        /*actions: [
-          IconButton(
-              onPressed: () {
-                FirebaseAuth.instance.signOut();
-              },
-              icon: const Icon(
-                Icons.logout,
-                color: Colors.black,
-              ))
-        ],*/
       ),
       body: SafeArea(
         child: Column(

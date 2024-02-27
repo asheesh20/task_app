@@ -31,6 +31,38 @@ class DeviceInRoom {
 
 List<HomeModel> smartHomeData = [
   HomeModel(
+    roomName: 'Dining Room',
+    roomImage: 'assets/images/Dinningroom.jpg',
+    roomTemperature: '25°',
+    roomStatus: true,
+    devices: [
+      DeviceInRoom(
+        deviceName: "WiFi",
+        iconOn: Icons.wifi,
+        iconOff: Icons.wifi_off,
+        deviceStatus: true,
+      ),
+      DeviceInRoom(
+        deviceName: "Light",
+        iconOn: Icons.lightbulb_rounded,
+        iconOff: Icons.lightbulb_outline_rounded,
+        deviceStatus: true,
+      ),
+      DeviceInRoom(
+        deviceName: "Fan",
+        iconOn: Icons.air,
+        iconOff: Icons.mode_fan_off_outlined,
+        deviceStatus: true,
+      ),
+      DeviceInRoom(
+        deviceName: "AC",
+        iconOn: Icons.ac_unit,
+        iconOff: Icons.thermostat,
+        deviceStatus: true,
+      ),
+    ],
+  ),
+  HomeModel(
     roomName: 'Living Room',
     roomImage: 'assets/images/Livingroom.jpg',
     roomTemperature: '25°',
@@ -103,38 +135,6 @@ List<HomeModel> smartHomeData = [
         iconOn: Icons.speaker_outlined,
         iconOff: Icons.volume_off_outlined,
         deviceStatus: false,
-      ),
-      DeviceInRoom(
-        deviceName: "AC",
-        iconOn: Icons.ac_unit,
-        iconOff: Icons.thermostat,
-        deviceStatus: true,
-      ),
-    ],
-  ),
-  HomeModel(
-    roomName: 'Dining Room',
-    roomImage: 'assets/images/Dinningroom.jpg',
-    roomTemperature: '25°',
-    roomStatus: true,
-    devices: [
-      DeviceInRoom(
-        deviceName: "WiFi",
-        iconOn: Icons.wifi,
-        iconOff: Icons.wifi_off,
-        deviceStatus: true,
-      ),
-      DeviceInRoom(
-        deviceName: "Light",
-        iconOn: Icons.lightbulb_rounded,
-        iconOff: Icons.lightbulb_outline_rounded,
-        deviceStatus: true,
-      ),
-      DeviceInRoom(
-        deviceName: "Fan",
-        iconOn: Icons.air,
-        iconOff: Icons.mode_fan_off_outlined,
-        deviceStatus: true,
       ),
       DeviceInRoom(
         deviceName: "AC",

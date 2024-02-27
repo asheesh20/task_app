@@ -146,7 +146,7 @@ class _RoomControlScreenState extends State<RoomControlScreen> {
               ),
             ),
             SizedBox(
-              height: size.height * 0.22,
+              height: size.height * 0.23,
               child: ListView.builder(
                   itemCount: roomData.devices!.length,
                   scrollDirection: Axis.horizontal,

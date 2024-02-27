@@ -26,6 +26,7 @@ class _DeviceSwitchState extends State<DeviceSwitch> {
       },
       child: Container(
         width: size.width * 0.22,
+        //height: size.height * 0.34,
         margin: const EdgeInsets.symmetric(horizontal: 10),
         padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(
@@ -35,7 +36,7 @@ class _DeviceSwitchState extends State<DeviceSwitch> {
           alignment: Alignment.center,
           children: [
             AnimatedPositioned(
-              top: !data.deviceStatus ? 0 : -size.height * 0.22 / 2,
+              top: !data.deviceStatus ? 0 : size.height * 0.22 / 2,
               duration: _duration,
               child: Column(
                 children: [
@@ -55,7 +56,7 @@ class _DeviceSwitchState extends State<DeviceSwitch> {
               ),
             ),
             AnimatedPositioned(
-              top: data.deviceStatus ? 0 : (size.height * 0.22 / 2) + 10,
+              top: data.deviceStatus ? 0 : (size.height * 0.22 / 2) + 9,
               duration: _duration,
               child: Container(
                 padding: const EdgeInsets.all(20),

@@ -22,9 +22,9 @@ class _CustomDrawerState extends State<CustomDrawer> {
       ),
       child: Container(
         padding: const EdgeInsets.all(20),
-        decoration: const BoxDecoration(
-          color: Color.fromARGB(255, 137, 96, 82),
-          borderRadius: BorderRadius.only(
+        decoration: BoxDecoration(
+          color: /*Color.fromARGB(255, 137, 96, 82)*/ Colors.grey[700],
+          borderRadius: const BorderRadius.only(
             topRight: Radius.circular(50),
             bottomRight: Radius.circular(50),
           ),
@@ -53,8 +53,8 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   width: size.width * 0.3,
                   height: size.width * 0.2,
                   child: Column(
-                    //crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    //crossAxisAlignment: CrossAxisAlignment.end,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       const Text(
                         'Hi User',
@@ -114,7 +114,10 @@ class _CustomDrawerState extends State<CustomDrawer> {
       ),
       title: Text(
         title,
-        style: const TextStyle(color: Colors.white),
+        style: title == 'Logout'
+            ? const TextStyle(
+                color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold)
+            : const TextStyle(color: Colors.white),
       ),
     );
   }
